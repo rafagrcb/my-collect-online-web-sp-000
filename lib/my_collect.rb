@@ -1,21 +1,15 @@
-languages = ["ruby", "javascript", "python", "objective-c"]
 
-array = ["Tim Jones", "Tom Smith", "Sophie Ruiz", "Antoin Chavez"]
-
-def my_collect(array) 
-  my_collect do |array|
-    array.split(" ").first
-  end
-end
 
 def my_collect(array)
-end
-
-def my_collect(languages)
-  my_collect do |languages|
-    languages.upcase
+  i = 0
+  name_collection = []
+  while i < array.length
+    name_collection.push yield(array[i])
+  # you could also do it this way:
+  # name_collection << yield(array[i])
+    i += 1
   end
+  name_collection
 end
 
-def my_collect(languages)
-end
+my_collect(list) {|i| i.split(" ").first}
